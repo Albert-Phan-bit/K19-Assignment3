@@ -10,33 +10,22 @@ let result02 = multiply(8, 8);
 
 //02
 
-function findMin(c, d, f) {
-    if ( c < d && c < f) {
-        console.log("Số nhỏ nhất là: " + c);        
+function findMin2(x, y, z) {
+    let min = x;
+    if (y < min) {
+        min = y;
     };
-    if ( d < c && d < f) {
-        console.log("Số nhỏ nhất là: " + d);        
+    if (z < min) {
+        min = z;
     };
-    if ( f < d && f < c) {
-        console.log("Số nhỏ nhất là: " + f);        
-    };
-    if ( c === d && c < f) {
-        console.log("Số nhỏ nhất là: " + c);        
-    };
-    if ( c === f && c < d) {
-        console.log("Số nhỏ nhất là: " + c);        
-    };
-    if ( d === f && d < c) {
-        console.log("Số nhỏ nhất là: " + d);        
-    };
-    if ( c === d && c === f) {
-        console.log("Không có số nhỏ nhất");        
-    };
-};
+    return min;
+}
 
-let result03 = findMin(8, 8, 9);
+let result03Fixed = findMin2(3, 2, 5);
+console.log(result03Fixed);
 
-let result04 = findMin(123, 324, 235);
+let result04Fixed = findMin2(14, 53, 36);
+console.log(result04Fixed);
 
 //03
 
@@ -44,31 +33,28 @@ function getTopStudents(student, threshold) {
     let passed = [];
     for (let i = 0; i < student.length; i++){
         if (student[i].score >= threshold){
-            let passedStudent = {
-                name: student[i].studentName,
-                score: student[i].score
+            passed.push(student[i].name);
             };
-            passed.push(passedStudent);
         };
+    return passed;
     };
-    console.log("Danh sách học sinh qua môn: ", passed);
-};
+    
 
 let student = [
-    {studentName: "A", score: 8},
-    {studentName: "B", score: 6},
-    {studentName: "C", score: 7},
-    {studentName: "D", score: 1},
-    {studentName: "E", score: 2},
-    {studentName: "F", score: 3},
-    {studentName: "G", score: 4},
-    {studentName: "H", score: 5}    
+    {name: "A", score: 8},
+    {name: "B", score: 6},
+    {name: "C", score: 7},
+    {name: "D", score: 1},
+    {name: "E", score: 2},
+    {name: "F", score: 3},
+    {name: "G", score: 4},
+    {name: "H", score: 5}    
 ];
 
 let threshold = 6;
 
 let result05 = getTopStudents(student, threshold);
-
+console.log("Danh sách học sinh qua môn: ", result05);    
 //04
 
 function calculateInterest(principal, rate, years) {
